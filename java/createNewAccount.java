@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import WebController;
 
-@WebServlet("/login")
-public class login extends HttpServlet {
-    public void login(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
+@WebServlet("/createNewAccount")
+public class createNewAccount extends HttpServlet {
+    public void createNewAccount(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException {
         Connection con = webController.connectDB();
 
-        //TODO:query to check if username and password exist and match
+        //TODO:query to add username and password to DB
         PreparedStatement statement = con.prepareStatement("");
 
-        statement.executeQuery();
+        statement.executeUpdate();
     }
 }
