@@ -4,6 +4,7 @@ public class charater {
     public String characterName;
     public int level;
     public String role;
+    public int strength, constitution, dexterity, intelligence, wisdom, charisma;
 
     public String getPlayerName() {
         return playerName;
@@ -85,7 +86,7 @@ public class charater {
         this.charisma = charisma;
     }
 
-    public int strength, constitution, dexterity, intelligence, wisdom, charisma;
+
 
 
     public charater() {

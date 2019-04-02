@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Character Name</th>
+            <th>role</th>
+            <th>level</th>
+        </tr>
+    </table>
+    <br>
+    <button onclick="createNewCharacter()">Create A New Character</button>
+    <button onclick="deleteCharacter()">Delete A Character</button>
+</body>
+<script>
+    // TODO: Display all the character from SQL
+    function displayTable(){
+
+    }
+
+    function createNewCharacter() {
+        window.location.href = "createNewCharacter.html";
+    }
+
+    function deleteCharacter() {
+        window.location.href = "DeleteAccount.html";
+    }
+
+    // TODO: Character name onclick direct to character.html and fill the table with data from SQL
+    function goToCharacter(c) {
+
+    }
+
+    displayTable();
+</script>
+</html>
