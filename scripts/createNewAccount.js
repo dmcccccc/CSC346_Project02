@@ -1,26 +1,40 @@
 window.onload = function(){
-  document.getElementById("login").onclick = login;
+  document.getElementById("createAccount").onclick = createAccount;
 };
 
-function login(){
+function createAccount(){
   const user = document.getElementById("username").value;
   const pw = document.getElementById("password").value;
 
-  const url = "http://ec2-54-162-249-97.compute-1.amazonaws.com:3000/?";
-//  using this url for local testing
-//  const url = "http://localhost:3000/?";
-  const query = "command=query&username=" + user + "&password=" + pw;
+  const url = "http://ec2-54-162-249-97.compute-1.amazonaws.com:3000/";
+// use this url for local testing
+//  const url = "http://localhost:3000/";
 
-  console.log("client query = " + query);
+  const message = {
+    command : "createAccount",
+    username : user,
+    password : pw
+  };
 
-  fetch(url + query)
+  const fetchOptions = {
+    method : 'POST',
+    headers : {
+      'Accept' : 'application/json',
+      'Content-Type' : 'application/json'
+    },
+    body : JSON.stringify(message)
+  };
+
+  console.log("client query message = " + message);
+
+  fetch(url, fetchOptions)
     .then(checkStatus)
     .then(function(responseText) {
       console.log("responseText = " + responseText);
       if (responseText == "success"){
-        window.location.href = '/loginSuccess.html';
+        window.location.href = '/login.html';
       } else {
-        window.location.href = '/loginFailure.html';
+        console.log("Fail to create Account!");
       }
     })
     .catch(function(error) {
