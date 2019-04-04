@@ -9,14 +9,17 @@
   const bodyParser = require("body-parser");
   const jsonParser = bodyParser.json();
   
+  var secretFile = fs.readFileSync('secret.json');
+  var secret = JSON.parse(secretFile);
+
   // require mysql
   const mysql = require("mysql");
 
   var con = mysql.createConnection({
-    host: "csc346-proj2-mysql.cwe4i3ncevoq.us-east-1.rds.amazonaws.com",
-    user: "yanglu1213",
-    password: "csc346proj2",
-    database: "innodb"
+    host: secret.hostname,
+    user: secret.username,
+    password: secret.password,
+    database: secret.database
   });
 
   // check connection
