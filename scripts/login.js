@@ -6,7 +6,7 @@ function login(){
   const user = document.getElementById("username").value;
   const pw = document.getElementById("password").value;
 
-  const url = "http://ec2-54-162-249-97.compute-1.amazonaws.com:3000/?";
+  const url = "http://ec2-18-215-236-194.compute-1.amazonaws.com:3000/?";
 //  using this url for local testing
 //  const url = "http://localhost:3000/?";
   const query = "command=query&username=" + user + "&password=" + pw;
