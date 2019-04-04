@@ -1,5 +1,5 @@
 window.onload = function() {
-  document.getElementById("create").onclick = query;
+  document.getElementById("delete").onclick = query;
 };
 
 function query() {
@@ -14,28 +14,10 @@ function query() {
 
       var username = user.split("=")[1];
       var characterName =  document.getElementById("characterName").value;
-      var level =  document.getElementById("level").value;
-      var role =  document.getElementById("role").value;
-      var strength =  document.getElementById("strength").value;
-      var constitution =  document.getElementById("constitution").value;
-      var dexterity =  document.getElementById("dexterity").value;
-      var intelligence =  document.getElementById("intelligence").value;
-      var wisdom =  document.getElementById("wisdom").value;
-      var charisma =  document.getElementById("charisma").value;
 
-    console.log("level = " + level);
-
-    const message = {command: "createCharacter",
+    const message = {command: "deleteCharacter",
             username: username,
-            characterName: characterName,
-            level: level,
-            role: role,
-            strength: strength,
-            constitution: constitution,
-            dexterity: dexterity,
-            intelligence: intelligence,
-            wisdom: wisdom,
-            charisma: charisma };
+            characterName: characterName};
     const fetchOptions = {
       method : 'POST',
       headers : {
@@ -53,7 +35,7 @@ function query() {
         if (responseText == "success"){
           window.location.href = "/user.html?" + user;
         } else {
-          console.log("error creating character");
+          console.log("error deleting character");
         }
       })
       .catch(function(error) {

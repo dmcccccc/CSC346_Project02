@@ -48,7 +48,7 @@
 
     switch(command) {
       case "createAccount": {
-        const username = req.body.username;
+        var username = req.body.username;
         const password = req.body.password;
         var query = 'INSERT INTO user (username, pw) VALUES (\'' + username + '\', \'' + password + '\')';
         console.log("query = " + query);
@@ -79,6 +79,21 @@
             + req.body.intelligence + ', '
             + req.body.wisdom + ', '
             + req.body.charisma + ')';
+        console.log("query = " + query);
+        con.query(query, function (err, result) {
+          if (err) {
+            res.send("fail");
+            throw err;
+          }
+          console.log("1 record inserted: " + query);
+          res.send("success");
+        });
+        break;
+      }
+      case "deleteCharacter": {
+        var username = req.body.username;
+        var characterName = req.body.characterName;
+        var query = 'DELETE FROM characters WHERE username=\'' + username + '\' AND characterName=\'' + characterName + '\'';
         console.log("query = " + query);
         con.query(query, function (err, result) {
           if (err) {
