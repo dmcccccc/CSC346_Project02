@@ -54,7 +54,8 @@
       case "createAccount": {
         const username = req.body.username;
         const password = req.body.password;
-        const query = 'INSERT INTO user (username, pw) VALUES (\'' + username + '\', ' + password + ')';
+        const query = 'INSERT INTO user (username, pw) VALUES (\'' + username + '\', \'' + password + '\')';
+        console.log("query = " + query);
         con.query(query, function (err, result) {
           if (err) {
             res.send("fail");
