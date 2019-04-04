@@ -2,6 +2,8 @@ window.onload = function(){
     query();
 }
 
+var id;
+
 // TODO: Display all the character from SQL(get array of Object from SQL)
 function query(){
 
@@ -27,6 +29,8 @@ function query(){
 
 }
 
+
+
 function displayTable(result) {
     result.forEach(displayCharacter);
 /*
@@ -42,23 +46,43 @@ function displayTable(result) {
         var characterName = row.insertCell(0);
         var role = row.insertCell(1);
         var level = row.insertCell(2);
+        var buttonRow = row.insertCell(3);
         characterName.innerHTML = value.characterName;
         role.innerHTML = value.role;
         level.innerHTML = value.lvl;
-        row.setAttribute("onclick","goToCharacter()");
+        var button = document.createElement("button");
+        button.innerHTML="Select";
+        button.setAttribute("onclick","goToCharacter()");
+        button.setAttribute("id",value.id);
+        buttonRow.appendChild(button);
     }
 
     function createNewCharacter() {
-        window.location.href = "createNewCharacter.html";
+        var temp = window.location.href;
+
+        var user = temp.split("?")[1];
+        window.location.href = "createNewCharacter.html?" + user;
     }
 
     function deleteCharacter() {
-        window.location.href = "DeleteAccount.html";
+        var temp = window.location.href;
+
+        var user = temp.split("?")[1];
+        window.location.href = "DeleteAccount.html?" + user;
     }
 
     // TODO: Character name onclick direct to character.html and fill the table with data from SQL
     function goToCharacter() {
+        var temp = window.location.href;
 
+        var user = temp.split("?")[1];
+
+        console.log("this is " + this.event.target);
+
+        var id = this.event.target.getAttribute("id");
+        console.log("id = " + id);
+
+        window.location.href = "character.html?" + user + "&id=" + id;
     }
 
   // ----------------------------------------------------------

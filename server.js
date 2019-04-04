@@ -116,6 +116,18 @@
         });
         break;
       }
+      case "getCharacter": {
+        console.log("getting character...");
+        var id = req.query.id;
+        console.log("id = " + id);
+
+        var query = 'SELECT * FROM characters WHERE id=\'' + id + '\'';
+        con.query(query, function(error, result, fields) {
+          console.log(result);
+          res.send(JSON.stringify(result));
+        });
+        break;
+      }
       default: {
         res.sendFile("./login.html", {root: __dirname});
         break;

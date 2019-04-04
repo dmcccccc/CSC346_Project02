@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Character</title>
     <link rel="stylesheet" href="character.css">
+    <script src="./scripts/character.js"></script>
 </head>
 <body>
     <table>
@@ -51,22 +52,4 @@
     </table>
 
 </body>
-<script>
-    // TODO: get result from SQL
-    function setTable() {
-        var result;
-        document.getElementById("playerName").innerHTML=result.playerName;
-        document.getElementById("characterName").innerHTML=result.characterName;
-        document.getElementById("level").innerHTML=result.level;
-        document.getElementById("role").innerHTML=result.role;
-        document.getElementById("strength").innerHTML=result.strength;
-        document.getElementById("constitution").innerHTML=result.constitution;
-        document.getElementById("dexterity").innerHTML=result.dexterity;
-        document.getElementById("intelligence").innerHTML=result.intelligence;
-        document.getElementById("wisdom").innerHTML=result.wisdom;
-        document.getElementById("charisma").innerHTML=result.charisma;
-    }
-
-    setTable();
-</script>
 </html>
