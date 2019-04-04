@@ -68,7 +68,7 @@ function displayTable(result) {
         var temp = window.location.href;
 
         var user = temp.split("?")[1];
-        window.location.href = "DeleteAccount.html?" + user;
+        window.location.href = "deleteCharacter.html?" + user;
     }
 
     // TODO: Character name onclick direct to character.html and fill the table with data from SQL

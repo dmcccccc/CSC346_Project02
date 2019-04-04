@@ -62,6 +62,34 @@
         });
         break;
       }
+      case "createCharacter": {
+
+        var cols = "username, characterName, lvl, role, strength, constitution,"
+                   + "dexterity, intelligence, wisdom, charisma"
+
+        var query = 'INSERT INTO characters ('
+            + cols + ')'
+            + 'VALUES (\''
+            + req.body.username + '\', \'' + req.body.characterName + '\' ,'
+            + req.body.level + ', \''
+            + req.body.role + '\', '
+            + req.body.strength + ', '
+            + req.body.constitution + ', '
+            + req.body.dexterity + ', '
+            + req.body.intelligence + ', '
+            + req.body.wisdom + ', '
+            + req.body.charisma + ')';
+        console.log("query = " + query);
+        con.query(query, function (err, result) {
+          if (err) {
+            res.send("fail");
+            throw err;
+          }
+          console.log("1 record inserted: " + query);
+          res.send("success");
+        });
+        break;
+      }
       default: {
         console.log("invalid command");
         break;
