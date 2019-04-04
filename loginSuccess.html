@@ -13,7 +13,8 @@
     }
 
     function redirect() {
-        window.location.href = "user.html";
+        var url = window.location.href;
+        window.location.href = "user.html?" + url.split("?")[1];
     }
 
     sleep(3000);

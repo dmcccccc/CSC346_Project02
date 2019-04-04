@@ -2,6 +2,7 @@ window.onload = function(){
   document.getElementById("login").onclick = login;
 };
 
+
 function login(){
   const user = document.getElementById("username").value;
   const pw = document.getElementById("password").value;
@@ -19,7 +20,7 @@ function login(){
     .then(function(responseText) {
       console.log("responseText = " + responseText);
       if (responseText == "success"){
-        window.location.href = '/loginSuccess.html';
+        window.location.href = '/loginSuccess.html?username=' + user;
       } else {
         window.location.href = '/loginFailure.html';
       }

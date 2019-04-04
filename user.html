@@ -4,55 +4,18 @@
     <meta charset="UTF-8">
     <title>User Page</title>
     <link rel="stylesheet" href="user.css">
+    <script src="./scripts/user.js"></script>
 </head>
 <body>
     <table id="characterTable">
         <tr>
-            <th>Character Name</th>
-            <th>role</th>
-            <th>level</th>
+            <th id="characterName">Character Name</th>
+            <th id="role">role</th>
+            <th id="level">level</th>
         </tr>
     </table>
     <br>
     <button onclick="createNewCharacter()">Create A New Character</button>
     <button onclick="deleteCharacter()">Delete A Character</button>
 </body>
-<script>
-    // TODO: Display all the character from SQL(get array of Object from SQL)
-    function displayTable(){
-        var result;
-        result.forEach(displayCharacter);
-
-        document.getElementById("characterName").innerHTML=result.characterName;
-        document.getElementById("level").innerHTML=result.level;
-        document.getElementById("role").innerHTML=result.role;
-    }
-
-    function displayCharacter(value) {
-        var table = document.getElementById("characterTable");
-        var row = table.insertRow(1);
-        var characterName = row.insertCell(0);
-        var role = row.insertCell(1);
-        var level = row.insertCell(2);
-        characterName.innerHTML = value.characterName;
-        role.innerHTML = value.role;
-        level.innerHTML = value.level;
-        row.setAttribute("onclick","goToCharacter()");
-    }
-
-    function createNewCharacter() {
-        window.location.href = "createNewCharacter.html";
-    }
-
-    function deleteCharacter() {
-        window.location.href = "DeleteAccount.html";
-    }
-
-    // TODO: Character name onclick direct to character.html and fill the table with data from SQL
-    function goToCharacter() {
-
-    }
-
-    displayTable();
-</script>
 </html>

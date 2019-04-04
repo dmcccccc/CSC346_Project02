@@ -1,7 +1,3 @@
-"use strict";
-
-// use module
-(function() {
   // require express
   const express = require("express");
   const app = express();
@@ -54,7 +50,7 @@
       case "createAccount": {
         const username = req.body.username;
         const password = req.body.password;
-        const query = 'INSERT INTO user (username, pw) VALUES (\'' + username + '\', \'' + password + '\')';
+        var query = 'INSERT INTO user (username, pw) VALUES (\'' + username + '\', \'' + password + '\')';
         console.log("query = " + query);
         con.query(query, function (err, result) {
           if (err) {
@@ -87,9 +83,9 @@
     switch(command){
       // get all comment and sent it back as JSON
       case "query": {
-        const username = req.query.username;
+        var username = req.query.username;
         const password = req.query.password;
-        const query = 'SELECT * FROM user WHERE username = \'' + username + '\'';
+        var query = 'SELECT * FROM user WHERE username = \'' + username + '\'';
         console.log("query = " + query);
         con.query(query, function (err, result, fields) {
           if (err) throw err;
@@ -108,6 +104,18 @@
         });
         break;
       }
+      case "getCharacters": {
+        console.log("getting characters...");
+        var username = req.query.username;
+        console.log("username = " + username);
+
+        var query = 'SELECT * FROM characters WHERE username=\'' + username + '\'';
+        con.query(query, function(error, result, fields) {
+          console.log(result);
+          res.send(JSON.stringify(result));
+        });
+        break;
+      }
       default: {
         res.sendFile("./login.html", {root: __dirname});
         break;
@@ -116,4 +124,3 @@
   });
 
   app.listen(3000);
-})();
