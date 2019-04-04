@@ -6,12 +6,13 @@ function login(){
   const user = document.getElementById("username").value;
   const pw = document.getElementById("password").value;
 
-  const url = "http://ec2-18-204-217-56.compute-1.amazonaws.com:3000/?";
-//  using this url for local testing
-//  const url = "http://localhost:3000/?";
-  const query = "command=query&username=" + user + "&password=" + pw;
+  // ask for the current url to run query with
+  const url = "http://" + window.location.hostname + ":" + window.location.port + "/";
+  const query = "?command=query&username=" + user + "&password=" + pw;
 
   console.log("client query = " + query);
+
+  console.log("serverUrl = " + url);
 
   fetch(url + query)
     .then(checkStatus)

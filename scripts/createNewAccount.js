@@ -6,9 +6,8 @@ function createAccount(){
   const user = document.getElementById("username").value;
   const pw = document.getElementById("password").value;
 
-  const url = "http://ec2-18-204-217-56.compute-1.amazonaws.com:3000/";
-// use this url for local testing
-//  const url = "http://localhost:3000/";
+  // ask for the current url to run query with
+  const url = "http://" + window.location.hostname + ":" + window.location.port + "/";
 
   const message = {
     command : "createAccount",
